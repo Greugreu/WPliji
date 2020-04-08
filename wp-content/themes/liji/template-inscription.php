@@ -15,7 +15,7 @@ if (!empty($_POST['submitted'])) {
     $statut        = stripslashes(trim(strip_tags($_POST['statut'])));
     $mail          = stripslashes(trim(strip_tags($_POST['mail'])));
     $telephone     = stripslashes(trim(strip_tags($_POST['telephone'])));
-    $siret         = stripslashes(trim(strip_tags(is_numeric($_POST['siret']))));
+    $siret         = stripslashes(trim(strip_tags($_POST['siret'])));
     $tarif         = stripslashes(trim(strip_tags($_POST['tarif'])));
     $places        = stripslashes(trim(strip_tags($_POST['places'])));
 
@@ -29,10 +29,10 @@ if (!empty($_POST['submitted'])) {
     $errors['adresse']       = $validation->textValid($adresse, 'adresse', 3, 150);
     $errors['statut']        = $validation->textValid($statut, 'statut', 3, 150);
     $errors['mail']          = $validation->emailValid($mail);
-    $errors['telephone']     = $validation->textValid($telephone, 'telephone', 10, 10);
-    $errors['siret']         = $validation->textValid($siret, 'siret', 14, 14);
+    $errors['telephone']     = $validation->textValid(is_numeric($telephone), 'telephone', 10, 10);
+    $errors['siret']         = $validation->textValid(is_numeric($siret), 'siret', 14, 14);
     $errors['tarif']         = $validation->textValid($tarif, 'tarif',0,5);
-    $errors['places']        = $validation->textValid($places, 'places', 0, 150);
+    $errors['places']        = $validation->textValid(is_numeric($places), 'places', 0, 150);
 
 
     if ($validation->IsValid($errors)) {
@@ -40,7 +40,6 @@ if (!empty($_POST['submitted'])) {
         $wpdb->insert(
             'pro',
             array(
-
                 'nom'           => $nom,
                 'prenom'        => $prenom,
                 'nomEntreprise' => $nomEntreprise,
@@ -54,16 +53,7 @@ if (!empty($_POST['submitted'])) {
                 'createdAt'     => current_time('mysql')
             ),
             array(
-                '%s',
-                '%s',
-                '%s',
-                '%s',
-                '%s',
-                '%s',
-                '%s',
-                '%s',
-                '%s',
-                '%s'
+                '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'
             )
         );
         $success = true;
@@ -75,12 +65,10 @@ if (!empty($_POST['submitted'])) {
 
 $form = new Form($errors);
 
-
 get_header(); ?>
 
     <section class="container">
         <h2>Contact</h2>
-
         <form class="container" action="" method="post">
             <div class="form-group">
                 <?php echo $form->label('nom') ?>
