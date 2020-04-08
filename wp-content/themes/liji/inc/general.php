@@ -17,6 +17,8 @@ if (!function_exists('liji_setup')) :
      */
     function liji_setup()
     {
+
+
         /*
          * Make theme available for translation.
          * Translations can be filed in the /languages/ directory.
