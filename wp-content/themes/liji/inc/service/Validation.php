@@ -7,7 +7,7 @@ class Validation
     public function IsValid($errors)
     {
         foreach ($errors as $key => $value) {
-            if(!empty($value)) {
+            if (!empty($value)) {
                 return false;
             }
         }
@@ -23,7 +23,7 @@ class Validation
     public function emailValid($email)
     {
         $error = '';
-        if(empty($email) || (filter_var($email, FILTER_VALIDATE_EMAIL)) === false) {
+        if (empty($email) || (filter_var($email, FILTER_VALIDATE_EMAIL)) === false) {
             $error = 'Adresse email invalide.';
         }
         return $error;
@@ -39,19 +39,19 @@ class Validation
      * @return string $error
      */
 
-    public function textValid($text, $title, $min = 3,  $max = 50, $empty = true)
+    public function textValid($text, $title, $min = 3, $max = 50, $empty = true)
     {
 
         $error = '';
-        if(!empty($text)) {
+        if (!empty($text)) {
             $strtext = strlen($text);
-            if($strtext > $max) {
+            if ($strtext > $max) {
                 $error = 'Votre ' . $title . ' est trop long.';
-            } elseif($strtext < $min) {
+            } elseif ($strtext < $min) {
                 $error = 'Votre ' . $title . ' est trop court.';
             }
         } else {
-            if($empty) {
+            if ($empty) {
                 $error = 'Veuillez renseigner un ' . $title . '.';
             }
         }
@@ -59,5 +59,33 @@ class Validation
 
     }
 
+    /**
+     * numericValid
+     * @param POST $text string
+     * @param title $title string
+     * @param min $min int
+     * @param max $max int
+     * @param empty $empty bool
+     * @return string $error
+     */
 
+    public function numericValid($int, $title, $min = 3, $max = 50, $empty = true)
+    {
+
+        $error = '';
+        if (!empty($int)) {
+            $strint = strlen($int);
+            if ($strint > $max) {
+                $error = 'Votre ' . $title . ' est trop long.';
+            } elseif ($strint < $min) {
+                $error = 'Votre ' . $title . ' est trop court';
+            }
+        } else {
+            if ($empty) {
+                $error = 'Veuillez renseigner un ' . $title . '.';
+            }
+        }
+        return $error;
+
+    }
 }
