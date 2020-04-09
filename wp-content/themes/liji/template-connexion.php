@@ -1,31 +1,30 @@
 <?php /* Template Name: Connexion */
-$title = "Connexion";
+session_start();
+global $web;
 $errors = array();
 $success = false;
-
 $form = new Form();
-if (!empty($_POST['submitted'])) {
-    $post = $this->cleanXss($_POST);
-    $validation = new Validation();
-    $errors['mail'] = $validation->emailValid($post['mail']);
+$valid = new Validation();
 
-    if ($validation->IsValid($errors) == true) {
-        $user = UserModel::findUserByMail($post['mail']);
-        if ($user->mail === $post['mail'] && password_verify($post['password'], $user->password)) {
-            $_SESSION = array(
-                'id' => $user->id,
-                'nom' => $user->nom,
-                'prenom' => $user->prenom,
-                'role' => $user->role,
-                'email' => $user->email,
-                'ip' => $_SERVER['REMOTE_ADDR'],
-            );
-            echo 'ça passe';
+if (!empty($_POST['submitted'])) {
+
+    // PROTECT FROM XSS
+    $mail     = stripslashes(trim(strip_tags($_POST['email'])));
+    $password = trim(strip_tags($_POST['password']));
+
+    $errors['mail'] = $valid->emailValid($mail);
+
+    if ($valid->IsValid($errors)) {
+        $user = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->prefix}pro_login WHERE email_pro = '%s'", $mail));
+        if (!empty($user)) {
+            if (password_verify($password, $user->password_pro)) {
+                $valid->nouvelleSession($user, '/childguard-wp/');
+            } else {
+                return $error = 'L\'email ou le mot de passe ne sont pas valide';
+            }
         } else {
-            $errors['password'] = 'Mail ou mot de passe incorrect';
+            return $error = "L\'email ou le mot de passe ne sont pas valide";
         }
-    } else {
-        $errors['login'] = 'Erreur dans les identifiants';
     }
 }
 
@@ -39,16 +38,11 @@ get_header(); ?>
 
             <?= $form->label('mail', 'Email'); ?>
             <?= $form->input('mail', 'text'); ?>
-            <?= $form->errors('mail'); ?>
+<!--            --><?//= $form->errors('mail'); ?>
 
             <?= $form->label('password', 'Mot de passe'); ?>
             <?= $form->input('password', 'password'); ?>
-            <?= $form->errors('password'); ?>
-
-            <div class="infoFormulaire">
-                <a href="mdpOublie.php">Mot de passe oublié ?</a>
-                <p>Pas de compte ? <a href="inscription.php"> Inscrivez-vous</a></p>
-            </div>
+<!--            --><?//= $form->errors('password'); ?>
 
             <?= $form->submit('envoyer', 'Se connecter'); ?>
 
