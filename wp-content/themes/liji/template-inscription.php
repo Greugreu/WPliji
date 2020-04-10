@@ -10,7 +10,7 @@ if (!empty($_POST['submitted'])) {
     // PROTECT FROM XSS
     $nom           = stripslashes(trim(strip_tags($_POST['nom'])));
     $prenom        = stripslashes(trim(strip_tags($_POST['prenom'])));
-    $email          = stripslashes(trim(strip_tags($_POST['email'])));
+    $email         = stripslashes(trim(strip_tags($_POST['email'])));
     $password      = stripslashes(trim(strip_tags($_POST['password'])));
     $entreprise    = stripslashes(trim(strip_tags($_POST['entreprise'])));
     $adresse       = stripslashes(trim(strip_tags($_POST['adresse'])));
@@ -26,8 +26,8 @@ if (!empty($_POST['submitted'])) {
 
     $errors['nom']           = $validation->textValid($nom, 'nom', 3, 150);
     $errors['prenom']        = $validation->textValid($prenom, 'prenom', 3, 150);
-    $errors['email']         = $validation->emailValid($email);
-    $errors['password']      = $validation->passwordValid($password);
+    $errors['email']          = $validation->emailValid($email);
+    $errors['password']      = $validation->passwordValid(wp_hash_password($password));
     $errors['entreprise']    = $validation->textValid($entreprise, 'entreprise', 3, 150);
     $errors['adresse']       = $validation->textValid($adresse, 'adresse', 3, 150);
     $errors['statut']        = $validation->textValid($statut, 'statut', 3, 150);
@@ -71,64 +71,64 @@ $form = new Form($errors);
 get_header(); ?>
 
     <section class="container">
-        <h2>Inscription</h2>
+        <h2>Contact</h2>
         <form class="container" action="" method="post">
             <div class="form-group">
-                <?php echo $form->label('nom','nom') ?>
-                <?php echo $form->input('text','nom','Juan') ?>
+                <?php echo $form->label('nom') ?>
+                <?php echo $form->input('nom') ?>
                 <?php echo $form->error('nom') ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('prenom','prenom') ?>
-                <?php echo $form->input('text','prenom','Deacoy') ?>
+                <?php echo $form->label('prenom') ?>
+                <?php echo $form->input('prenom') ?>
                 <?php echo $form->error('prenom') ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('email','email'); ?>
-                <?php echo $form->input('email','email','juan@deacoy.fr'); ?>
+                <?php echo $form->label('email'); ?>
+                <?php echo $form->input('email'); ?>
                 <?php echo $form->error('email'); ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('mot de passe','password'); ?>
-                <?php echo $form->input('password','password',''); ?>
+                <?php echo $form->label('password'); ?>
+                <?php echo $form->input('password'); ?>
                 <?php echo $form->error('password'); ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('entreprise','entreprise') ?>
-                <?php echo $form->input('text','entreprise','') ?>
+                <?php echo $form->label('entreprise') ?>
+                <?php echo $form->input('entreprise') ?>
                 <?php echo $form->error('entreprise') ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('adresse','adresse') ?>
-                <?php echo $form->input('text','adresse','') ?>
+                <?php echo $form->label('adresse') ?>
+                <?php echo $form->input('adresse') ?>
                 <?php echo $form->error('adresse') ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('statut','statut') ?>
-                <?php echo $form->input('text','statut','') ?>
+                <?php echo $form->label('statut') ?>
+                <?php echo $form->input('statut') ?>
                 <?php echo $form->error('statut') ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('telephone','telephone'); ?>
-                <?php echo $form->input('text','telephone',''); ?>
+                <?php echo $form->label('telephone'); ?>
+                <?php echo $form->input('telephone'); ?>
                 <?php echo $form->error('telephone'); ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('siret','siret'); ?>
-                <?php echo $form->input('text','siret',''); ?>
+                <?php echo $form->label('siret'); ?>
+                <?php echo $form->input('siret'); ?>
                 <?php echo $form->error('siret'); ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('tarif','tarif'); ?>
-                <?php echo $form->input('text','tarif',''); ?>
+                <?php echo $form->label('tarif'); ?>
+                <?php echo $form->input('tarif'); ?>
                 <?php echo $form->error('tarif'); ?>
             </div>
             <div class="form-group">
-                <?php echo $form->label('places','places'); ?>
-                <?php echo $form->input('text','places',''); ?>
+                <?php echo $form->label('places'); ?>
+                <?php echo $form->input('places'); ?>
                 <?php echo $form->error('places'); ?>
             </div>
-            <?php echo $form->submit('submitted','Envoyez'); ?>
+            <?php echo $form->submit(); ?>
         </form>
     </section>
 
