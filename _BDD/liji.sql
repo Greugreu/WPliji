@@ -422,7 +422,7 @@ INSERT INTO `liji_postmeta` (`meta_id`, `post_id`, `meta_key`, `meta_value`) VAL
 (28, 11, '_wp_desired_post_slug', 'listepro'),
 (29, 12, '_edit_lock', '1586254691:1'),
 (30, 12, '_edit_last', '1'),
-(31, 12, '_wp_page_template', 'template-listtingpro.php'),
+(31, 12, '_wp_page_template', 'template-listingpro.php'),
 (32, 13, '_edit_lock', '1586263191:1'),
 (33, 13, '_wp_page_template', 'template-deconnexion.php'),
 (34, 13, '_edit_last', '1');

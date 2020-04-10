@@ -6,6 +6,10 @@ $web = array(
             'id'          => 5,
             'slug'        => 'home',
         ),
+        'listing'         => array(
+            'id'          => 12,
+            'slug'        => 'liste-de-professionnels'
+        ),
         'inscription'     => array(
             'id'          => 8,
             'slug'        => 'inscription',
@@ -14,7 +18,7 @@ $web = array(
             'id'          => 9,
             'slug'        => 'connexion',
         ),
-        'deconnexion'      => array(
+        'deconnexion'     => array(
             'id'          => 13,
             'slug'        => 'deconnexion',
         ),
@@ -24,11 +28,7 @@ $web = array(
         ),
         'confidentialite' => array(
             'id'          => 3,
-            'slug'        => 'politique de confidentialité',
-        ),
-        'listing'        => array(
-            'id'          => 12,
-            'slug'        => 'liste de professionnels'
+            'slug'        => 'politique-de-confidentialite',
         )
     )
 );

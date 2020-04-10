@@ -29,10 +29,10 @@ if (!empty($_POST['submitted'])) {
     $errors['adresse']       = $validation->textValid($adresse, 'adresse', 3, 150);
     $errors['statut']        = $validation->textValid($statut, 'statut', 3, 150);
     $errors['mail']          = $validation->emailValid($mail);
-    $errors['telephone']     = $validation->textValid(is_numeric($telephone), 'telephone', 10, 10);
-    $errors['siret']         = $validation->textValid(is_numeric($siret), 'siret', 14, 14);
+    $errors['telephone']     = $validation->numericValid($telephone,'telephone', 10, 10);
+    $errors['siret']         = $validation->numericValid($siret, 'siret', 14, 14);
     $errors['tarif']         = $validation->textValid($tarif, 'tarif',0,5);
-    $errors['places']        = $validation->textValid(is_numeric($places), 'places', 0, 150);
+    $errors['places']        = $validation->numericValid($places, 'places', 0, 150);
 
 
     if ($validation->IsValid($errors)) {
