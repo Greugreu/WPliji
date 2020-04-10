@@ -1,6 +1,6 @@
 <?php
 
-//use inc\service\Form;
+namespace inc\service;
 
 class Form
 {

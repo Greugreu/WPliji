@@ -1,4 +1,7 @@
 <?php /* Template Name: Inscription */
+
+use inc\service\Form;
+
 get_header();
 
 $errors      = array();
