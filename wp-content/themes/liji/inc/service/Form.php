@@ -1,6 +1,5 @@
 <?php
 
-//use inc\service\Form;
 
 class Form
 {
