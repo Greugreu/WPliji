@@ -15,45 +15,34 @@ class Form
     }
 
     /**
-     * @param $html string
-     * @return string
-     */
-    private function arround($html)
-    {
-        return '<div class="form-control">' . $html . '</div>';
-    }
-
-    /**
      * @param $name string
      * @return string
      */
-    private function getValue($name, $data)
+    private function getValue($name)
     {
-        if (!empty($data)) {
-            return !empty($this->post[$name]) ? stripslashes($this->post[$name]) : $data;
+        if (!empty($_POST[$name])) {
+            return $_POST[$name];
         } else {
-            return !empty($this->post[$name]) ? stripslashes($this->post[$name]) : null;
+            return '';
         }
-
     }
 
     /**
      * @param $name string
      * @return string
      */
-    public function input($name, $data = null)
+    public function input($type, $name, $placeholder)
     {
-        return $this->arround('<input type="text" id="' . $name . '" name="' . $name . '" value="' . $this->getValue($name, $data) . '">');
+        return '<input type="' . $type . '" name="' . $name . '" id="' . $name . '"placeholder="' . $placeholder . '" value="' . $this->getValue($name) . '">';
     }
 
     /**
      * @param $name
-     * @param null $data
      * @return string
      */
-    public function textarea($name, $data = null)
+    public function textarea($name)
     {
-        return $this->arround('<textarea name="' . $name . '">' . $this->getValue($name, $data) . '</textarea>');
+        return '<textarea name="' . $name . '" id="' . $name . '">' . $this->getValue($name) . '</textarea>';
     }
 
     /**
@@ -61,7 +50,7 @@ class Form
      * @param $value string
      * @return string
      */
-    public function submit($name = 'submitted', $value = 'Envoyer')
+    public function submit($name, $value)
     {
         return '<input type="submit" name="' . $name . '" id="' . $name . '" value="' . $value . '">';
     }
@@ -80,12 +69,12 @@ class Form
 
     /**
      * @param $name
-     * @param $label valeur du label
+     * @param $label
      * @return string
      */
-    public function label($name, $label = null)
+    public function label($label, $name)
     {
-        //$text = ($label === null) ? $name : $label;
-        return '<label for="' . $name . '">' . ucfirst($name) . '</label>';
+        return '<label for="' . $name . '">' . ucfirst($label) . '</label>';
     }
+
 }

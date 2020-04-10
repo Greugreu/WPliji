@@ -5,7 +5,7 @@ global $web; ?>
 
 <footer class="footer">
     <nav class="navbar navbar-expand-lg">
-        <h1>Confidentialite</h1>
+
         <!--            <a class="navbar-brand" href="-->
         <?php //echo esc_url(home_url($web['pages']['home']['slug'])) ?><!--">-->
         <!--                <img src="wp-content/themes/liji/asset/img/liji.png"  alt="">-->

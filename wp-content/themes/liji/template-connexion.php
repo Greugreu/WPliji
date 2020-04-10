@@ -3,22 +3,23 @@ session_start();
 global $web;
 $errors = array();
 $success = false;
-$form = new Form();
-$valid = new Validation();
 
 if (!empty($_POST['submitted'])) {
 
     // PROTECT FROM XSS
     $mail     = stripslashes(trim(strip_tags($_POST['email'])));
-    $password = trim(strip_tags($_POST['password']));
+    $password = stripslashes(trim(strip_tags($_POST['password'])));
 
-    $errors['mail'] = $valid->emailValid($mail);
+    $validation = new Validation();
 
-    if ($valid->IsValid($errors)) {
-        $user = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->prefix}pro_login WHERE email_pro = '%s'", $mail));
+    $errors['mail']     = $validation->emailValid($mail);
+    $errors['password'] = $validation->passwordValid($password);
+
+    if ($validation->IsValid($errors)) {
+        $user = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$wpdb->prefix}pro WHERE mail = '%s'", $mail));
         if (!empty($user)) {
-            if (password_verify($password, $user->password_pro)) {
-                $valid->nouvelleSession($user, '/childguard-wp/');
+            if (password_verify($password, $user->password)) {
+                $validation->nouvelleSession($user, '/liji/');
             } else {
                 return $error = 'L\'email ou le mot de passe ne sont pas valide';
             }
@@ -37,12 +38,12 @@ get_header(); ?>
         <form action="" method="post" class="formulaire">
 
             <?= $form->label('mail', 'Email'); ?>
-            <?= $form->input('mail', 'text'); ?>
-<!--            --><?//= $form->errors('mail'); ?>
+            <?= $form->input('mail'); ?>
+            <?= $form->error('mail'); ?>
 
             <?= $form->label('password', 'Mot de passe'); ?>
-            <?= $form->input('password', 'password'); ?>
-<!--            --><?//= $form->errors('password'); ?>
+            <?= $form->input('password'); ?>
+            <?= $form->error('password'); ?>
 
             <?= $form->submit('envoyer', 'Se connecter'); ?>
 
