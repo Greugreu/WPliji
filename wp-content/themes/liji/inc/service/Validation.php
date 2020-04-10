@@ -88,4 +88,18 @@ class Validation
         return $error;
 
     }
+
+    public function passwordValid($password)
+    {
+        $error = '';
+        if (!empty($password)) {
+            if (mb_strlen($password) < 6) {
+                $error = 'Le mot de passe doit contenir 6 caractères minimums';
+            } else {
+                $error = 'Veuillez renseigner un mot de passe';
+            }
+        }
+        return $error;
+    }
+
 }

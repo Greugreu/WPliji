@@ -10,10 +10,11 @@ if (!empty($_POST['submitted'])) {
     // PROTECT FROM XSS
     $nom           = stripslashes(trim(strip_tags($_POST['nom'])));
     $prenom        = stripslashes(trim(strip_tags($_POST['prenom'])));
-    $nomEntreprise = stripslashes(trim(strip_tags($_POST['entreprise'])));
+    $email         = stripslashes(trim(strip_tags($_POST['email'])));
+    $password      = stripslashes(trim(strip_tags($_POST['password'])));
+    $entreprise    = stripslashes(trim(strip_tags($_POST['entreprise'])));
     $adresse       = stripslashes(trim(strip_tags($_POST['adresse'])));
     $statut        = stripslashes(trim(strip_tags($_POST['statut'])));
-    $mail          = stripslashes(trim(strip_tags($_POST['mail'])));
     $telephone     = stripslashes(trim(strip_tags($_POST['telephone'])));
     $siret         = stripslashes(trim(strip_tags($_POST['siret'])));
     $tarif         = stripslashes(trim(strip_tags($_POST['tarif'])));
@@ -25,10 +26,11 @@ if (!empty($_POST['submitted'])) {
 
     $errors['nom']           = $validation->textValid($nom, 'nom', 3, 150);
     $errors['prenom']        = $validation->textValid($prenom, 'prenom', 3, 150);
-    $errors['nomEntreprise'] = $validation->textValid($nomEntreprise, 'entreprise', 3, 150);
+    $errors['email']          = $validation->emailValid($email);
+    $errors['password']      = $validation->passwordValid(wp_hash_password($password));
+    $errors['entreprise']    = $validation->textValid($entreprise, 'entreprise', 3, 150);
     $errors['adresse']       = $validation->textValid($adresse, 'adresse', 3, 150);
     $errors['statut']        = $validation->textValid($statut, 'statut', 3, 150);
-    $errors['mail']          = $validation->emailValid($mail);
     $errors['telephone']     = $validation->numericValid($telephone,'telephone', 10, 10);
     $errors['siret']         = $validation->numericValid($siret, 'siret', 14, 14);
     $errors['tarif']         = $validation->textValid($tarif, 'tarif',0,5);
@@ -42,18 +44,19 @@ if (!empty($_POST['submitted'])) {
             array(
                 'nom'           => $nom,
                 'prenom'        => $prenom,
-                'nomEntreprise' => $nomEntreprise,
+                'nomEntreprise' => $entreprise,
                 'adresse'       => $adresse,
                 'statut'        => $statut,
-                'mail'          => $mail,
+                'mail'          => $email,
                 'telephone'     => $telephone,
                 'siret'         => $siret,
                 'tarif'         => $tarif,
                 'places'        => $places,
+                'password'      => $password,
                 'createdAt'     => current_time('mysql')
             ),
             array(
-                '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s', '%s'
+                '%s', '%s', '%s', '%s', '%s', '%s', '%d', '%d', '%d', '%d', '%s'
             )
         );
         $success = true;
@@ -81,6 +84,16 @@ get_header(); ?>
                 <?php echo $form->error('prenom') ?>
             </div>
             <div class="form-group">
+                <?php echo $form->label('email'); ?>
+                <?php echo $form->input('email'); ?>
+                <?php echo $form->error('email'); ?>
+            </div>
+            <div class="form-group">
+                <?php echo $form->label('password'); ?>
+                <?php echo $form->input('password'); ?>
+                <?php echo $form->error('password'); ?>
+            </div>
+            <div class="form-group">
                 <?php echo $form->label('entreprise') ?>
                 <?php echo $form->input('entreprise') ?>
                 <?php echo $form->error('entreprise') ?>
@@ -94,11 +107,6 @@ get_header(); ?>
                 <?php echo $form->label('statut') ?>
                 <?php echo $form->input('statut') ?>
                 <?php echo $form->error('statut') ?>
-            </div>
-            <div class="form-group">
-                <?php echo $form->label('mail'); ?>
-                <?php echo $form->input('mail'); ?>
-                <?php echo $form->error('mail'); ?>
             </div>
             <div class="form-group">
                 <?php echo $form->label('telephone'); ?>
