@@ -1,13 +1,10 @@
 <?php /* Template Name: Deconnexion */
 
-get_header(); ?>
+session_start();
 
-    <main class="container">
-        <h1>Deconnexion</h1>
-        <pre>
-        <?php print_r($web['pages']); ?>
-        </pre>
+$urlLogout = esc_url(home_url($web['pages']['home']['slug']));
 
-    </main>
+wp_logout();
 
-<?php get_footer();
+wp_safe_redirect($urlLogout, $status = 302, $x_redirect_by = 'WordPress');
+exit();

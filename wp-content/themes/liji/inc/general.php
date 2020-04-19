@@ -110,6 +110,10 @@ function liji_scripts()
     wp_enqueue_style('bootstrap');
     wp_enqueue_script('bootstrap');
 
+    // font awesome
+    wp_register_script('fontawesome', 'https://kit.fontawesome.com/001a252c18.js');
+    wp_enqueue_script('fontawesome');
+
 
 }
 
@@ -121,3 +125,20 @@ function do_output_buffer()
 {
     ob_start();
 }
+
+//add_action('send_headers', 'site_router');
+//
+//function site_router()
+//{
+//    $root = str_replace('index.php', '', $_SERVER['SCRIPT_NAME']);
+//    $url = str_replace($root, '', $_SERVER['REQUEST_URI']);
+//    $url = explode('/', $url);
+//    if (count($url) == 1 && $url[0] == 'connexion') {
+//        require 'wp-content/themes/liji/template-connexion.php';
+//        die();
+//    }
+//    if (count($url) == 1 && $url[0] == 'home') {
+//        require 'template-home.php';
+//        die();
+//    }
+//}

@@ -7,8 +7,8 @@ $web = array(
             'slug'        => 'home',
         ),
         'listing'         => array(
-            'id'          => 12,
-            'slug'        => 'liste-de-professionnels'
+            'id'          => 7,
+            'slug'        => 'listing'
         ),
         'inscription'     => array(
             'id'          => 8,
@@ -28,7 +28,11 @@ $web = array(
         ),
         'confidentialite' => array(
             'id'          => 3,
-            'slug'        => 'politique-de-confidentialite',
-        )
+            'slug'        => 'confidentialite',
+        ),
+        'profil'          => array(
+            'id'          => 15,
+            'slug'        => 'profil',
+)
     )
 );

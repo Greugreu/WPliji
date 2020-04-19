@@ -78,3 +78,7 @@ table {
 div .container-fluid header nav {
     background-color: #660066;
 }
+footer .footer-top{
+    background: lime;
+    padding: 80px 0;
+}

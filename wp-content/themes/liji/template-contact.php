@@ -1,4 +1,5 @@
 <?php /* Template Name: Contact */
+session_start();
 $errors = array();
 $success = false;
 $redirection = esc_url(home_url($web['pages']['home']));
@@ -65,31 +66,27 @@ get_header(); ?>
             font-size: .8em;
         }
     </style>
-<section class="container">
-    <h2>Contact</h2>
+<section class="container" id="template-contact">
+    <h2 class="text-center">Contact</h2>
 
     <form class="container" action="" method="post">
-        <div class="form-group">
+        <div class="form-group ">
             <?php echo $form->label('nom') ?>
-            <?php echo $form->input('nom') ?>
+            <?php echo $form->input('text','nom','nom') ?>
             <?php echo $form->error('nom') ?>
-        </div>
-        <div class="form-group">
+
             <?php echo $form->label('prenom') ?>
-            <?php echo $form->input('prenom') ?>
+            <?php echo $form->input('text','prenom','prenom') ?>
             <?php echo $form->error('prenom') ?>
-        </div>
-        <div class="form-group">
+
             <?php echo $form->label('sujet'); ?>
-            <?php echo $form->input('sujet'); ?>
+            <?php echo $form->input('text','sujet','sujet'); ?>
             <?php echo $form->error('sujet'); ?>
-        </div>
-        <div class="form-group">
+
             <?php echo $form->label('email'); ?>
-            <?php echo $form->input('email'); ?>
+            <?php echo $form->input('email','email','email'); ?>
             <?php echo $form->error('email'); ?>
-        </div>
-        <div class="form-group">
+
             <?php echo $form->label('message'); ?>
             <?php echo $form->textarea('message'); ?>
             <?php echo $form->error('message'); ?>
