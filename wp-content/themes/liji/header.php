@@ -27,23 +27,23 @@
                 <img src="wp-content/themes/liji/asset/img/liji.png" alt="">
             </a>
             <ul class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-                <?php if (is_user_logged_in()) { ?>
-                    <li><a class="navbar-brand " href="<?php echo esc_url(home_url($web['pages']['home']['slug'])) ?>"
-                           title="">Accueil</a>
-                    </li>
-                    <li><a class="navbar-brand"
-                           href="<?php echo esc_url(home_url($web['pages']['listing']['slug'])); ?>"
-                           title="">Liste pro</a>
-                    </li>
-                    <li><a class="navbar-brand"
-                           href="<?php echo esc_url(home_url($web['pages']['deconnexion']['slug'])); ?>"
-                           title="">Deconnexion</a>
-                    </li>
-                    <li><a class="navbar-brand"
-                           href="<?php echo esc_url(home_url($web['pages']['contact']['slug'])); ?>"
-                           title="">Contact</a>
-                    </li>
-                <?php } else { ?>
+<!--                --><?php //if (is_user_logged_in()) { ?>
+<!--                    <li><a class="navbar-brand " href="--><?php //echo esc_url(home_url($web['pages']['home']['slug'])) ?><!--"-->
+<!--                           title="">Accueil</a>-->
+<!--                    </li>-->
+<!--                    <li><a class="navbar-brand"-->
+<!--                           href="--><?php //echo esc_url(home_url($web['pages']['listing']['slug'])); ?><!--"-->
+<!--                           title="">Liste pro</a>-->
+<!--                    </li>-->
+<!--                    <li><a class="navbar-brand"-->
+<!--                           href="--><?php //echo esc_url(home_url($web['pages']['deconnexion']['slug'])); ?><!--"-->
+<!--                           title="">Deconnexion</a>-->
+<!--                    </li>-->
+<!--                    <li><a class="navbar-brand"-->
+<!--                           href="--><?php //echo esc_url(home_url($web['pages']['contact']['slug'])); ?><!--"-->
+<!--                           title="">Contact</a>-->
+<!--                    </li>-->
+<!--                --><?php //} else { ?>
                 <li><a class="navbar-brand " href="<?php echo esc_url(home_url($web['pages']['home']['slug'])) ?>"
                        title="">Accueil</a>
                 </li>
@@ -63,7 +63,7 @@
                            href="<?php echo esc_url(home_url($web['pages']['connexion']['slug'])); ?>"
                            title="">Connexion</a>
                     </li>
-                <?php } ?>
+<!--                --><?php //} ?>
 
             </ul>
         </nav>
