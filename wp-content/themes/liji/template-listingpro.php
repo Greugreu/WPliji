@@ -10,7 +10,7 @@ $the_query = new WP_Query($args);
 get_header(); ?>
 
     <section class="container" id="listing-pro">
-        <h1 class="text-center">Choisissez le profil qui vous correspond !</h1>
+        <h1 class="text-center">Différents profils</h1>
         <div class="card-deck">
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil1.jpg" class="card-img-top" alt="">

@@ -14,10 +14,8 @@ global $web; ?>
                 <div class="col-md-3 col-sm-6 col-xs-12 segment-two md-mb-30 sm-mb-30">
                     <h2>liens utiles</h2>
                     <ul>
-                        <li><a href="#">link</a></li>
-                        <li><a href="#">link</a></li>
-                        <li><a href="#">link</a></li>
-                        <li><a href="#">link</a></li>
+                        <li><a href="#">CGU</a></li>
+                        <li><a href="#">Politique de confidentialité</a></li>
                     </ul>
                 </div>
                 <div class="col-md-3 col-sm-6 col-xs-12 segment-three sm-mb-30">
