@@ -15,31 +15,31 @@ get_header(); ?>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil1.jpg" class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 1</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Michelle</h5>
+                    <p class="card-text">Profesionnelle de la petite enfance</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil2.jpg"  class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 1</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Caroline</h5>
+                    <p class="card-text">Salariée à temps partiel</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil3.jpg"  class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 1</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Julie</h5>
+                    <p class="card-text">Etudiante</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
         </div>
@@ -47,31 +47,31 @@ get_header(); ?>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil4.jpg"  class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 1</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Vanessa</h5>
+                    <p class="card-text">Etudiante</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil5.jpg"  class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 2</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Michel</h5>
+                    <p class="card-text">Professionnel de la petite enfance</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil6.jpg"  class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 3</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <h5 class="card-title">Obiwan</h5>
+                    <p class="card-text">Professionnel de la petite enfance</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
         </div>
@@ -79,31 +79,31 @@ get_header(); ?>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil7.jpg"  class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 1</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <h5 class="card-title">Anakin</h5>
+                    <p class="card-text">Etudiant</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil8.jpg"  class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 2</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                    <h5 class="card-title">Brenda</h5>
+                    <p class="card-text">Salariée à temps partiel</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
             <div class="card">
                 <img src="../wp-content/themes/liji/asset/img/profil9.jpg"  class="card-img-top" alt="">
                 <div class="card-body">
-                    <h5 class="card-title">Profil 3</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                    <h5 class="card-title">Samara</h5>
+                    <p class="card-text">Professionnelle de la petite enfance</p>
                 </div>
                 <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <small class="text-muted">Voir plus</small>
                 </div>
             </div>
         </div>
